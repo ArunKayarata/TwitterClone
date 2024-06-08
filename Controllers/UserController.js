@@ -24,7 +24,7 @@ router.post('/register', async (req, res) => {
       const user = new User({ username, password: hashedPassword });
       console.log(user)
       await user.save();
-      res.status(201).json({ message: 'User registered successfully',sucess:true ,data:user});
+      res.status(201).json({ message: 'User registered successfully',sucess:true });
     } catch (err) {
       res.status(500).json({ error: err.message });
     }
@@ -74,7 +74,7 @@ router.post('/register', async (req, res) => {
   router.get('/:userId/timeline', authMiddleware, async (req, res) => {
     const { userId } = req.params;
     const { cursor } = req.query; 
-    const limit = 10; 
+    const limit = 2; 
   
     try {
 
